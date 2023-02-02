@@ -19,6 +19,18 @@ createApp({
                 this.language = '';
                 this.todoList = response.data;
             })
+        },
+        deleteItem(index) {
+            const data = {
+                delete: index
+            }
+
+            axios.post(this.apiUrl, data, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+
+            }).then((response) => {
+                this.todoList = response.data;
+            });
         }
     },
     mounted() {
